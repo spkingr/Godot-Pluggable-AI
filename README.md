@@ -4,7 +4,7 @@
 
 Several days ago I read a Reddit post: [Unity tutorial --to-> Godot tutorial ?](https://www.reddit.com/r/godot/comments/fo2y2u/unity_tutorial_to_godot_tutorial/) , in the post, the Unity tutorial is all about ScriptableObject and AI, it's so fantastic that I want to try that in Godot! So I made this project.
 
-![Pluggable AI With Scriptable Objects](./Images/Pluggable AI With Scriptable Objects.jpg)
+![Pluggable AI With Scriptable Objects](./Images/Pluggable%20AI%20With%20Scriptable%20Objects.jpg)
 
 I tried, and without any success, but finally, it works, the biggest problem in my project is the **Circular reference to resource** error!
 Sometimes all code is right but the start screen just disappears when you start running the game, and **NO ANY INFORMATION** outputs!

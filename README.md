@@ -47,6 +47,10 @@ This is the main AI content from the Unity tutorial, to make the game more under
   - Actions: []
   - Transitions: [{Decision: ScanDecision, TrueState: Patrol Scanner, FalseState: Remain State}, {Decision: LookDecision, TrueState: Chase Scanner, FalseState: Remain State}]
 
+![Inspector](./Images/godot0.jpg)
+
+![Code](./Images/godot0.jpg)
+
 ## Code
 
 IMO, the "ScriptableObject" in Unity is the same thing as "Resource" in Godot, like the "tilesets" created in the TileMap node, so I create the corresponding `Actions/Decisions/States`, etc... in Godot, the resource files is based on the `Resource` subclass scripts.

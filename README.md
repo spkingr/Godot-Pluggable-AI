@@ -49,11 +49,11 @@ This is the main AI content from the Unity tutorial, to make the game more under
 
 ![Inspector](./Images/godot0.jpg)
 
-![Code](./Images/godot1.jpg)
-
 ## Code
 
 IMO, the "ScriptableObject" in Unity is the same thing as "Resource" in Godot, like the "tilesets" created in the TileMap node, so I create the corresponding `Actions/Decisions/States`, etc... in Godot, the resource files is based on the `Resource` subclass scripts.
+
+![Code](./Images/godot1.jpg)
 
 ## Problems
 

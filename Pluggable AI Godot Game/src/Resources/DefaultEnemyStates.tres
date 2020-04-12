@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/Scripts/EnemyStatus.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+moveSpeed = 120
+lookRange = 500
+lookAngle = 30
+attackRange = 350
+attackRate = 2.5
+attackForce = 1.0
+attackDamage = 10
+searchDuration = 8.0
+searchTurnSpeed = 2.0
+resourceName = "EnemyStatus"

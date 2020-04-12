@@ -1,0 +1,25 @@
+[gd_scene format=2]
+
+[node name="GameOverScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -262.0
+margin_top = -160.0
+margin_right = -144.0
+margin_bottom = -129.0
+rect_scale = Vector2( 5, 5 )
+text = "Game Over!
+Press 'R' to reload."
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}

@@ -1,0 +1,155 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[ {
+"base": "Resource",
+"class": "AbstractAction",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/AbstractAction.gd"
+}, {
+"base": "Resource",
+"class": "AbstractDecision",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/AbstractDecision.gd"
+}, {
+"base": "AbstractDecision",
+"class": "ActiveStateDecision",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/ActiveStateDecision.gd"
+}, {
+"base": "AbstractAction",
+"class": "AttackAction",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/AttackAction.gd"
+}, {
+"base": "AbstractAction",
+"class": "ChaseAction",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/ChaseAction.gd"
+}, {
+"base": "Resource",
+"class": "EnemyStatus",
+"language": "GDScript",
+"path": "res://src/Scripts/EnemyStatus.gd"
+}, {
+"base": "AbstractDecision",
+"class": "LookDecision",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/LookDecision.gd"
+}, {
+"base": "AbstractAction",
+"class": "PatrolAction",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/PatrolAction.gd"
+}, {
+"base": "AbstractDecision",
+"class": "ScanDecision",
+"language": "GDScript",
+"path": "res://src/Scripts/ScriptableObjects/ScanDecision.gd"
+}, {
+"base": "Resource",
+"class": "State",
+"language": "GDScript",
+"path": "res://src/Scripts/State.gd"
+}, {
+"base": "Node2D",
+"class": "StateController",
+"language": "GDScript",
+"path": "res://src/Controller/StateController.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Tank",
+"language": "GDScript",
+"path": "res://src/Tank/Tank.gd"
+}, {
+"base": "Resource",
+"class": "Transition",
+"language": "GDScript",
+"path": "res://src/Scripts/Transition.gd"
+} ]
+_global_script_class_icons={
+"AbstractAction": "res://assets/icons/action-icon.svg",
+"AbstractDecision": "res://assets/icons/decision-icon.svg",
+"ActiveStateDecision": "",
+"AttackAction": "",
+"ChaseAction": "",
+"EnemyStatus": "res://assets/icons/enemy-states-icon.svg",
+"LookDecision": "",
+"PatrolAction": "",
+"ScanDecision": "",
+"State": "res://assets/icons/state-icon.svg",
+"StateController": "",
+"Tank": "",
+"Transition": ""
+}
+
+[application]
+
+config/name="Pluggable AI Godot Game"
+run/main_scene="res://src/Game/Game.tscn"
+config/icon="res://assets/icons/icon.png"
+
+[display]
+
+window/size/width=1920
+window/size/height=1080
+window/dpi/allow_hidpi=true
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[input]
+
+move_forward={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":87,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777232,"unicode":0,"echo":false,"script":null)
+ ]
+}
+move_back={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":83,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777234,"unicode":0,"echo":false,"script":null)
+ ]
+}
+rotate_left={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":65,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"unicode":0,"echo":false,"script":null)
+ ]
+}
+rotate_right={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":68,"unicode":0,"echo":false,"script":null)
+, Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777233,"unicode":0,"echo":false,"script":null)
+ ]
+}
+fire={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":32,"unicode":0,"echo":false,"script":null)
+, Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+reload={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":82,"unicode":0,"echo":false,"script":null)
+ ]
+}
+
+[layer_names]
+
+2d_physics/layer_1="static"
+2d_physics/layer_2="player"
+2d_physics/layer_3="bullet"
+2d_physics/layer_4="explosion"
+
+[rendering]
+
+quality/2d/use_pixel_snap=true
+environment/default_environment="res://src/default_env.tres"

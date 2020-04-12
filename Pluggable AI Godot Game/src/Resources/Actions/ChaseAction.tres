@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://src/Scripts/ScriptableObjects/ChaseAction.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+debugDrawColor = Color( 0.0470588, 0.486275, 1, 1 )
+resourceName = "Chase Action"

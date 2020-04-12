@@ -1,0 +1,24 @@
+[gd_resource type="Resource" load_steps=8 format=2]
+
+[ext_resource path="res://src/Resources/States/ChaseChaser.tres" type="Resource" id=1]
+[ext_resource path="res://src/Resources/Decisions/LookDecision.tres" type="Resource" id=2]
+[ext_resource path="res://src/Resources/States/RemainState.tres" type="Resource" id=3]
+[ext_resource path="res://src/Resources/Actions/PatrolAction.tres" type="Resource" id=4]
+[ext_resource path="res://src/Scripts/State.gd" type="Script" id=5]
+[ext_resource path="res://src/Scripts/Transition.gd" type="Script" id=6]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 6 )
+decision = ExtResource( 2 )
+trueState = ExtResource( 1 )
+falseState = ExtResource( 3 )
+trueStateResource = ""
+falseStateResource = ""
+resouceName = "Transition"
+
+[resource]
+script = ExtResource( 5 )
+actions = [ ExtResource( 4 ) ]
+transitions = [ SubResource( 1 ) ]
+debugStateColor = Color( 0, 0.545098, 0.521569, 1 )
+resourceName = "Patrol Chaser"

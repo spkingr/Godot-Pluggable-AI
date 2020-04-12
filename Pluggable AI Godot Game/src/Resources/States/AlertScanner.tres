@@ -1,0 +1,34 @@
+[gd_resource type="Resource" load_steps=10 format=2]
+
+[ext_resource path="res://src/Scripts/Transition.gd" type="Script" id=1]
+[ext_resource path="res://src/Resources/Decisions/ScanDecision.tres" type="Resource" id=2]
+[ext_resource path="res://src/Resources/Decisions/LookDecision.tres" type="Resource" id=3]
+[ext_resource path="res://src/Resources/States/RemainState.tres" type="Resource" id=4]
+[ext_resource path="res://src/Resources/States/ChaseScanner.tres" type="Resource" id=5]
+[ext_resource path="res://src/Scripts/State.gd" type="Script" id=6]
+[ext_resource path="res://src/Resources/States/PatrolScanner.tres" type="Resource" id=7]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 1 )
+decision = ExtResource( 2 )
+trueState = ExtResource( 7 )
+falseState = ExtResource( 4 )
+trueStateResource = ""
+falseStateResource = ""
+resouceName = "Transition"
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 1 )
+decision = ExtResource( 3 )
+trueState = ExtResource( 5 )
+falseState = ExtResource( 4 )
+trueStateResource = ""
+falseStateResource = ""
+resouceName = "Transition"
+
+[resource]
+script = ExtResource( 6 )
+actions = [  ]
+transitions = [ SubResource( 1 ), SubResource( 2 ) ]
+debugStateColor = Color( 0, 1, 0, 1 )
+resourceName = "Alert Scanner"

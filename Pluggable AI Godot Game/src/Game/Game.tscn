@@ -1,0 +1,208 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://src/Tank/Tank.tscn" type="PackedScene" id=1]
+[ext_resource path="res://assets/sprites/terrainTiles_default.png" type="Texture" id=2]
+[ext_resource path="res://src/Controller/StateController.tscn" type="PackedScene" id=3]
+[ext_resource path="res://src/Game/Game.gd" type="Script" id=4]
+[ext_resource path="res://src/Objects/ObstacleWater.tscn" type="PackedScene" id=5]
+[ext_resource path="res://src/Objects/ObstacleWood.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/Objects/ObstacleFence.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/Objects/ObstacleMud.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/Resources/States/RemainState.tres" type="Resource" id=9]
+[ext_resource path="res://src/Resources/States/PatrolChaser.tres" type="Resource" id=10]
+[ext_resource path="res://src/Resources/DefaultEnemyStates.tres" type="Resource" id=11]
+[ext_resource path="res://src/Game/Camera.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/Resources/States/PatrolScanner.tres" type="Resource" id=13]
+[ext_resource path="res://src/GUI/GameOverScreen.tscn" type="PackedScene" id=14]
+
+[sub_resource type="TileSet" id=1]
+0/name = "terrainTiles_default.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 640, 256 )
+0/tile_mode = 2
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 64, 64 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 960, 4 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 4, 550 )
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 4 )
+stopCamera = false
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 7, 1, 0, 196608, 2, 0, 196608, 3, 0, 196608, 4, 0, 196608, 5, 0, 196608, 6, 0, 196608, 7, 0, 196608, 8, 0, 196613, 9, 0, 131074, 10, 0, 131074, 11, 0, 131074, 12, 0, 131074, 13, 0, 196614, 14, 0, 8, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 26, 0, 0, 27, 0, 1, 28, 0, 0, 29, 0, 0, 65536, 0, 2, 65537, 0, 2, 65538, 0, 2, 65539, 0, 2, 65540, 0, 2, 65541, 0, 2, 65542, 0, 2, 65543, 0, 2, 65544, 0, 2, 65545, 0, 2, 65546, 0, 2, 65547, 0, 2, 65548, 0, 2, 65549, 0, 6, 65550, 0, 6, 65551, 0, 2, 65552, 0, 2, 65553, 0, 2, 65554, 0, 2, 65555, 0, 2, 65556, 0, 2, 65557, 0, 2, 65558, 0, 2, 65559, 0, 2, 65560, 0, 2, 65561, 0, 2, 65562, 0, 2, 65563, 0, 65542, 65564, 0, 0, 65565, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 1, 131086, 0, 1, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 65544, 131094, 0, 65544, 131095, 0, 65544, 131096, 0, 65544, 131097, 0, 65544, 131098, 0, 65544, 131099, 0, 65544, 131100, 0, 65544, 131101, 0, 65544, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196618, 0, 0, 196619, 0, 0, 196620, 0, 0, 196621, 0, 1, 196622, 0, 1, 196623, 0, 0, 196624, 0, 0, 196625, 0, 0, 196626, 0, 0, 196627, 0, 0, 196628, 0, 7, 196629, 0, 131072, 196630, 0, 131072, 196631, 0, 196608, 196632, 0, 196608, 196633, 0, 196608, 196634, 0, 196608, 196635, 0, 196608, 196636, 0, 196608, 196637, 0, 196608, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 1, 262158, 0, 1, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 262162, 0, 0, 262163, 0, 0, 262164, 0, 7, 262165, 0, 131072, 262166, 0, 196608, 262167, 0, 196608, 262168, 0, 196608, 262169, 0, 196608, 262170, 0, 196608, 262171, 0, 196608, 262172, 0, 196608, 262173, 0, 196608, 327680, 0, 0, 327681, 0, 65539, 327682, 0, 2, 327683, 0, 2, 327684, 0, 2, 327685, 0, 6, 327686, 0, 2, 327687, 0, 2, 327688, 0, 2, 327689, 0, 2, 327690, 0, 2, 327691, 0, 65540, 327692, 0, 65539, 327693, 0, 65538, 327694, 0, 65537, 327695, 0, 2, 327696, 0, 2, 327697, 0, 2, 327698, 0, 2, 327699, 0, 2, 327700, 0, 2, 327701, 0, 2, 327702, 0, 131081, 327703, 0, 131074, 327704, 0, 131074, 327705, 0, 131078, 327706, 0, 131074, 327707, 0, 131074, 327708, 0, 131074, 327709, 0, 131074, 393216, 0, 0, 393217, 0, 1, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 1, 393222, 0, 0, 393223, 0, 0, 393224, 0, 0, 393225, 0, 0, 393226, 0, 0, 393227, 0, 65541, 393228, 0, 65537, 393229, 0, 65538, 393230, 0, 4, 393231, 0, 0, 393232, 0, 0, 393233, 0, 0, 393234, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393239, 0, 0, 393240, 0, 0, 393241, 0, 131073, 393242, 0, 0, 393243, 0, 0, 393244, 0, 0, 393245, 0, 0, 458752, 0, 0, 458753, 0, 65545, 458754, 0, 65544, 458755, 0, 65544, 458756, 0, 65544, 458757, 0, 65545, 458758, 0, 65544, 458759, 0, 65544, 458760, 0, 65544, 458761, 0, 65544, 458762, 0, 65544, 458763, 0, 65544, 458764, 0, 65541, 458765, 0, 65542, 458766, 0, 1, 458767, 0, 0, 458768, 0, 0, 458769, 0, 0, 458770, 0, 0, 458771, 0, 0, 458772, 0, 0, 458773, 0, 0, 458774, 0, 0, 458775, 0, 0, 458776, 0, 0, 458777, 0, 131073, 458778, 0, 0, 458779, 0, 0, 458780, 0, 0, 458781, 0, 0, 524288, 0, 0, 524289, 0, 131075, 524290, 0, 131074, 524291, 0, 131074, 524292, 0, 131074, 524293, 0, 196610, 524294, 0, 131074, 524295, 0, 131074, 524296, 0, 131074, 524297, 0, 131074, 524298, 0, 131074, 524299, 0, 131074, 524300, 0, 131074, 524301, 0, 131080, 524302, 0, 4, 524303, 0, 0, 524304, 0, 0, 524305, 0, 0, 524306, 0, 0, 524307, 0, 0, 524308, 0, 0, 524309, 0, 0, 524310, 0, 0, 524311, 0, 0, 524312, 0, 0, 524313, 0, 131073, 524314, 0, 0, 524315, 0, 0, 524316, 0, 0, 524317, 0, 0, 589824, 0, 0, 589825, 0, 131073, 589826, 0, 65543, 589827, 0, 65543, 589828, 0, 65543, 589829, 0, 131073, 589830, 0, 131072, 589831, 0, 131072, 589832, 0, 131072, 589833, 0, 196608, 589834, 0, 196608, 589835, 0, 196608, 589836, 0, 8, 589837, 0, 0, 589838, 0, 1, 589839, 0, 0, 589840, 0, 0, 589841, 0, 0, 589842, 0, 0, 589843, 0, 0, 589844, 0, 65544, 589845, 0, 65544, 589846, 0, 65544, 589847, 0, 0, 589848, 0, 0, 589849, 0, 131073, 589850, 0, 0, 589851, 0, 0, 589852, 0, 0, 589853, 0, 0, 655360, 0, 0, 655361, 0, 131073, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 131073, 655366, 0, 196611, 655367, 0, 196612, 655368, 0, 196608, 655369, 0, 196608, 655370, 0, 196608, 655371, 0, 196608, 655372, 0, 8, 655373, 0, 0, 655374, 0, 196616, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 7, 655380, 0, 196608, 655381, 0, 196611, 655382, 0, 131074, 655383, 0, 131074, 655384, 0, 131074, 655385, 0, 196609, 655386, 0, 196612, 655387, 0, 0, 655388, 0, 0, 655389, 0, 0, 720896, 0, 0, 720897, 0, 131073, 720898, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 131073, 720902, 0, 131073, 720903, 0, 131075, 720904, 0, 131074, 720905, 0, 131074, 720906, 0, 131074, 720907, 0, 131074, 720908, 0, 131074, 720909, 0, 131074, 720910, 0, 131076, 720911, 0, 0, 720912, 0, 0, 720913, 0, 0, 720914, 0, 0, 720915, 0, 7, 720916, 0, 196608, 720917, 0, 131075, 720918, 0, 131074, 720919, 0, 131074, 720920, 0, 131074, 720921, 0, 131076, 720922, 0, 131073, 720923, 0, 0, 720924, 0, 0, 720925, 0, 0, 786432, 0, 0, 786433, 0, 131073, 786434, 0, 0, 786435, 0, 0, 786436, 0, 0, 786437, 0, 131075, 786438, 0, 131077, 786439, 0, 196609, 786440, 0, 196612, 786441, 0, 196608, 786442, 0, 196611, 786443, 0, 196612, 786444, 0, 196608, 786445, 0, 196608, 786446, 0, 196617, 786447, 0, 0, 786448, 0, 0, 786449, 0, 0, 786450, 0, 0, 786451, 0, 7, 786452, 0, 196608, 786453, 0, 131073, 786454, 0, 196608, 786455, 0, 8, 786456, 0, 7, 786457, 0, 196613, 786458, 0, 131076, 786459, 0, 0, 786460, 0, 0, 786461, 0, 0, 851968, 0, 131074, 851969, 0, 196614, 851970, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 131073, 851974, 0, 196608, 851975, 0, 131073, 851976, 0, 131073, 851977, 0, 196608, 851978, 0, 131073, 851979, 0, 131075, 851980, 0, 131074, 851981, 0, 196612, 851982, 0, 1, 851983, 0, 0, 851984, 0, 0, 851985, 0, 0, 851986, 0, 0, 851987, 0, 7, 851988, 0, 131072, 851989, 0, 131073, 851990, 0, 131072, 851991, 0, 8, 851992, 0, 0, 851993, 0, 7, 851994, 0, 131073, 851995, 0, 0, 851996, 0, 0, 851997, 0, 0, 917504, 0, 0, 917505, 0, 0, 917506, 0, 0, 917507, 0, 0, 917508, 0, 0, 917509, 0, 131073, 917510, 0, 196608, 917511, 0, 131073, 917512, 0, 131073, 917513, 0, 196608, 917514, 0, 131073, 917515, 0, 131073, 917516, 0, 196608, 917517, 0, 131073, 917518, 0, 1, 917519, 0, 0, 917520, 0, 0, 917521, 0, 0, 917522, 0, 0, 917523, 0, 7, 917524, 0, 131072, 917525, 0, 131075, 917526, 0, 131074, 917527, 0, 9, 917528, 0, 2, 917529, 0, 131081, 917530, 0, 196609, 917531, 0, 131074, 917532, 0, 131074, 917533, 0, 131074, 983040, 0, 0, 983041, 0, 0, 983042, 0, 0, 983043, 0, 0, 983044, 0, 0, 983045, 0, 131075, 983046, 0, 131074, 983047, 0, 196609, 983048, 0, 131077, 983049, 0, 131074, 983050, 0, 196614, 983051, 0, 131073, 983052, 0, 196608, 983053, 0, 131073, 983054, 0, 1, 983055, 0, 0, 983056, 0, 0, 983057, 0, 0, 983058, 0, 0, 983059, 0, 7, 983060, 0, 131072, 983061, 0, 131073, 983062, 0, 131072, 983063, 0, 8, 983064, 0, 0, 983065, 0, 7, 983066, 0, 131073, 983067, 0, 196608, 983068, 0, 196608, 983069, 0, 196608, 1048576, 0, 0, 1048577, 0, 0, 1048578, 0, 0, 1048579, 0, 0, 1048580, 0, 0, 1048581, 0, 131073, 1048582, 0, 196608, 1048583, 0, 131073, 1048584, 0, 196608, 1048585, 0, 196608, 1048586, 0, 196608, 1048587, 0, 131073, 1048588, 0, 196608, 1048589, 0, 131073, 1048590, 0, 1, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 1048594, 0, 0, 1048595, 0, 7, 1048596, 0, 196608, 1048597, 0, 131073, 1048598, 0, 196608, 1048599, 0, 8, 1048600, 0, 0, 1048601, 0, 7, 1048602, 0, 131073, 1048603, 0, 196608, 1048604, 0, 196608, 1048605, 0, 196608 )
+
+[node name="Tanks" type="Node2D" parent="."]
+
+[node name="TankPlayer" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 127, 226 )
+
+[node name="TankEnemy1" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 868, 626 )
+tankBodyRect = Rect2( 260, 80, 38, 40 )
+tankGunRect = Rect2( 356, 60, 12, 30 )
+tankFireRect = Rect2( 324, 334, 20, 25 )
+
+[node name="StateController" parent="Tanks/TankEnemy1" instance=ExtResource( 3 )]
+enemyStatus = ExtResource( 11 )
+currentState = ExtResource( 10 )
+remainState = ExtResource( 9 )
+
+[node name="TankEnemy2" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 1535, 299 )
+
+[node name="StateController" parent="Tanks/TankEnemy2" instance=ExtResource( 3 )]
+enemyStatus = ExtResource( 11 )
+currentState = ExtResource( 13 )
+remainState = ExtResource( 9 )
+
+[node name="TankEnemy3" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 258, 973 )
+tankBodyRect = Rect2( 258, 0, 38, 36 )
+tankGunRect = Rect2( 358, 0, 12, 30 )
+tankFireRect = Rect2( 342, 234, 16, 28 )
+
+[node name="StateController" parent="Tanks/TankEnemy3" instance=ExtResource( 3 )]
+enemyStatus = ExtResource( 11 )
+currentState = ExtResource( 13 )
+remainState = ExtResource( 9 )
+
+[node name="TankEnemy4" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 1691, 957 )
+tankBodyRect = Rect2( 218, 132, 38, 36 )
+tankGunRect = Rect2( 326, 98, 16, 30 )
+tankFireRect = Rect2( 324, 334, 20, 25 )
+
+[node name="StateController" parent="Tanks/TankEnemy4" instance=ExtResource( 3 )]
+enemyStatus = ExtResource( 11 )
+currentState = ExtResource( 10 )
+remainState = ExtResource( 9 )
+
+[node name="Waypoints" type="Node2D" parent="."]
+
+[node name="Point1" type="Position2D" parent="Waypoints"]
+position = Vector2( 307, 194 )
+
+[node name="Point2" type="Position2D" parent="Waypoints"]
+position = Vector2( 987, 258 )
+
+[node name="Point3" type="Position2D" parent="Waypoints"]
+position = Vector2( 1723, 159 )
+
+[node name="Point4" type="Position2D" parent="Waypoints"]
+position = Vector2( 1706, 892 )
+
+[node name="Point5" type="Position2D" parent="Waypoints"]
+position = Vector2( 1037, 1038 )
+
+[node name="Point6" type="Position2D" parent="Waypoints"]
+position = Vector2( 503, 810 )
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="ObstacleWood1" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 856, 419 )
+
+[node name="ObstacleWood2" parent="Obstacles" instance=ExtResource( 6 )]
+position = Vector2( 555, 30 )
+rotation = 1.83259
+
+[node name="ObstacleFence1" parent="Obstacles" instance=ExtResource( 7 )]
+position = Vector2( 997, 356 )
+rotation = -0.785397
+
+[node name="ObstacleFence2" parent="Obstacles" instance=ExtResource( 7 )]
+position = Vector2( 359, 796 )
+rotation = 0.523598
+
+[node name="ObstacleMud1" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 1325, 173 )
+
+[node name="ObstacleMud2" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 1486, 626 )
+
+[node name="ObstacleMud3" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 1535, 784 )
+
+[node name="ObstacleMud4" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 306, 626 )
+
+[node name="ObstacleMud5" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 146, 457 )
+
+[node name="ObstacleMud6" parent="Obstacles" instance=ExtResource( 8 )]
+position = Vector2( 35, 50 )
+
+[node name="ObstacleWater1" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 781, 159 )
+
+[node name="ObstacleWater2" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 1213, 580 )
+
+[node name="ObstacleWater3" parent="Obstacles" instance=ExtResource( 5 )]
+position = Vector2( 1005, 957 )
+
+[node name="Walls" type="Node2D" parent="."]
+
+[node name="Wall1" type="StaticBody2D" parent="Walls"]
+position = Vector2( 960, -4 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall1"]
+shape = SubResource( 2 )
+
+[node name="Wall2" type="StaticBody2D" parent="Walls"]
+position = Vector2( 960, 1088 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall2"]
+shape = SubResource( 2 )
+
+[node name="Wall3" type="StaticBody2D" parent="Walls"]
+position = Vector2( -4, 544 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall3"]
+shape = SubResource( 3 )
+
+[node name="Wall4" type="StaticBody2D" parent="Walls"]
+position = Vector2( 1924, 544 )
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Wall4"]
+shape = SubResource( 3 )
+
+[node name="Camera" parent="." instance=ExtResource( 12 )]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource( 14 )]
+[connection signal="getWayPoints" from="Tanks/TankEnemy1/StateController" to="." method="_on_StateController_getWayPoints"]
+[connection signal="getWayPoints" from="Tanks/TankEnemy2/StateController" to="." method="_on_StateController_getWayPoints"]
+[connection signal="getWayPoints" from="Tanks/TankEnemy3/StateController" to="." method="_on_StateController_getWayPoints"]
+[connection signal="getWayPoints" from="Tanks/TankEnemy4/StateController" to="." method="_on_StateController_getWayPoints"]

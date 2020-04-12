@@ -49,7 +49,7 @@ This is the main AI content from the Unity tutorial, to make the game more under
 
 ![Inspector](./Images/godot0.jpg)
 
-![Code](./Images/godot0.jpg)
+![Code](./Images/godot1.jpg)
 
 ## Code
 

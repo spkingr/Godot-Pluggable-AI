@@ -9,13 +9,13 @@ Several days ago I read a Reddit post: [Unity tutorial --to-> Godot tutorial ?](
 I tried, and without any success, but finally, it works, the biggest problem in my project is the **Circular reference to resource** error!
 Sometimes all code is right but the start screen just disappears when you start running the game, and **NO ANY INFORMATION** outputs!
 
-![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable AI With Scriptable Objects in Godot 1.jpg)
+![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable%20AI%20With%20Scriptable%20Objects%20in%20Godot%201.jpg)
 
-![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable AI With Scriptable Objects in Godot 2.jpg)
+![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable%20AI%20With%20Scriptable%20Objects%20in%20Godot%202.jpg)
 
-![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable AI With Scriptable Objects in Godot 3.jpg)
+![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable%20AI%20With%20Scriptable%20Objects%20in%20Godot%203.jpg)
 
-![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable AI With Scriptable Objects in Godot 4.jpg)
+![Pluggable AI With Scriptable Objects in Godot](./Images/Pluggable%20AI%20With%20Scriptable%20Objects%20in%20Godot%204.jpg)
 
 ## Caution
 

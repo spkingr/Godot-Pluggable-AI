@@ -10,7 +10,7 @@ const ACCELERATION := 80.0
 const DECELERATION := -160.0
 
 export var moveSpeed := 200
-export var rotateSpeed := 2.0
+export var rotateSpeed := 1.25
 export var tankBodyRect := Rect2(216, 0, 42, 42)
 export var tankGunRect := Rect2(326, 264, 16, 30)
 export var tankFireRect := Rect2(324, 295, 21, 39)

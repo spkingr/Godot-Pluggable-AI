@@ -68,6 +68,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy2" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 1535, 299 )

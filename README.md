@@ -81,4 +81,6 @@ func _checkTransitions(controller : StateController) -> void:
 
 Of course, this is just a demonstration, I just want to explain an idea, and I know that Godot 4.0 will solve the circular reference dependence issue, and, with other great stuff coming together, this is really excited to anticipate, I hope Godot will become much much greater in the future!
 
-Reddit Post: https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/
+Reddit Post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/](https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/)
+
+Youtube Media: [https://www.youtube.com/watch?v=k8fQTgcHttQ](https://www.youtube.com/watch?v=k8fQTgcHttQ)

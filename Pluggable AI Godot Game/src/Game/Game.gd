@@ -14,7 +14,8 @@ func _ready() -> void:
 	$CanvasLayer/GameOverScreen.hide()
 	
 	for tank in tankContainer.get_children():
-		tank.connect('dead', self, '_on_Tank_dead', [tank])
+		if tank is Tank:
+			tank.connect('dead', self, '_on_Tank_dead', [tank])
 	
 	if stopCamera:
 		camera.targets = []
@@ -25,10 +26,6 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('reload'):
 		self.get_tree().reload_current_scene()
-
-func _process(delta: float) -> void:
-	if tankContainer.get_child_count() <= 1:
-		$CanvasLayer/GameOverScreen.show()
 
 
 func _on_StateController_getWayPoints(stateController : StateController) -> void:
@@ -47,4 +44,7 @@ func _on_Tank_dead(tank : Tank) -> void:
 	explosion.global_position = tank.global_position
 	
 	camera.targets.erase(tank)
+	
+	if self.get_tree().get_nodes_in_group('player').size() <= 2:
+		$CanvasLayer/GameOverScreen.show()
 

@@ -3,6 +3,7 @@
 [ext_resource path="res://assets/sprites/onlyObjects_default.png" type="Texture" id=1]
 
 [node name="Obstacle" type="StaticBody2D"]
+collision_mask = 0
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 1 )

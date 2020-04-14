@@ -1,7 +1,7 @@
 extends Area2D
 
 
-const ExplosionScene := preload('res://src/Tank/Explosion.tscn')
+const MissileExplosionScene := preload('res://src/Tank/MissileExplosion.tscn')
 
 export var moveSpeed := 600
 export var moveResistance := 200
@@ -29,7 +29,7 @@ func _physics_process(delta: float) -> void:
 
 
 func _explode() -> void:
-	var explosion = ExplosionScene.instance()
+	var explosion = MissileExplosionScene.instance()
 	self.get_parent().add_child(explosion)
 	explosion.global_position = self.global_position
 	

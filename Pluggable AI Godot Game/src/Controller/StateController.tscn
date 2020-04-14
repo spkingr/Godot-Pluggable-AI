@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://src/Controller/StateController.gd" type="Script" id=1]
+[ext_resource path="res://assets/fonts/dynamic_font_small.tres" type="DynamicFont" id=2]
 
 [node name="StateController" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,13 +18,11 @@ collision_mask = 3
 [node name="TracerTimer" type="Timer" parent="."]
 wait_time = 0.5
 
-[node name="DebugNode" type="Node2D" parent="."]
-
 [node name="DebugLabel" type="Label" parent="."]
 margin_right = 32.0
 margin_bottom = 14.0
-rect_scale = Vector2( 2, 2 )
-custom_colors/font_color = Color( 1, 0.223529, 0.223529, 1 )
+custom_fonts/font = ExtResource( 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
 text = "State"
 __meta__ = {
 "_edit_use_anchors_": false

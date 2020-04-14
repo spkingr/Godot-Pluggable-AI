@@ -22,6 +22,7 @@ onready var firePosition := $FirePoint as Position2D
 onready var fireSprite := $SpriteFire as Sprite
 onready var gunSprite := $SpriteGun as Sprite
 onready var bodySprite := $SpriteBody as Sprite
+onready var collisionShape := $CollisionShape2D.shape as Shape2D
 onready var healthBar = $HealthBar
 
 var _isAIActive := false
@@ -36,6 +37,7 @@ var _isAttacked := false
 
 var health := 100
 var isDead := false
+var sideLength := 0
 
 
 func _ready() -> void:
@@ -43,6 +45,8 @@ func _ready() -> void:
 	fireSprite.region_rect = tankFireRect
 	gunSprite.region_rect = tankGunRect
 	bodySprite.region_rect = tankBodyRect
+	
+	sideLength = int(min(collisionShape.extents.x, collisionShape.extents.y)) * 2
 
 
 func _unhandled_input(event: InputEvent) -> void:

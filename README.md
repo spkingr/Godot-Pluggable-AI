@@ -4,6 +4,12 @@
 
 Several days ago I read a Reddit post: [Unity tutorial --to-> Godot tutorial ?](https://www.reddit.com/r/godot/comments/fo2y2u/unity_tutorial_to_godot_tutorial/) , in the post, the Unity tutorial is all about ScriptableObject and AI, it's so fantastic that I want to try that in Godot! So I made this project.
 
+Reddit post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/](https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/)
+
+Youtube media: [https://www.youtube.com/watch?v=k8fQTgcHttQ](https://www.youtube.com/watch?v=k8fQTgcHttQ)
+
+Unity Youtube videos: 
+
 ![Pluggable AI With Scriptable Objects](./Images/Pluggable%20AI%20With%20Scriptable%20Objects.jpg)
 
 I tried, and without any success, but finally, it works, the biggest problem in my project is the **Circular reference to resource** error!
@@ -42,7 +48,7 @@ This is the main AI content from the Unity tutorial, to make the game more under
   - Transitions: {Decision: LookDecision, TrueState: Remain State, FalseState: Alert Scanner}
 - Patrol Scanner:
   - Actions: [PatrolAction]
-- Transitions: {Decision: LookDecision, TrueState: Chase Scanner, FalseState: Remain State}
+  - Transitions: {Decision: LookDecision, TrueState: Chase Scanner, FalseState: Remain State}
 - Alert Scanner:
   - Actions: []
   - Transitions: [{Decision: ScanDecision, TrueState: Patrol Scanner, FalseState: Remain State}, {Decision: LookDecision, TrueState: Chase Scanner, FalseState: Remain State}]
@@ -81,6 +87,6 @@ func _checkTransitions(controller : StateController) -> void:
 
 Of course, this is just a demonstration, I just want to explain an idea, and I know that Godot 4.0 will solve the circular reference dependence issue, and, with other great stuff coming together, this is really excited to anticipate, I hope Godot will become much much greater in the future!
 
-Reddit Post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/](https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/)
-
-Youtube Media: [https://www.youtube.com/watch?v=k8fQTgcHttQ](https://www.youtube.com/watch?v=k8fQTgcHttQ)
+- Reddit Post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/](https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/)
+- Youtube Media: [https://www.youtube.com/watch?v=HujbaVajaJ4](https://www.youtube.com/watch?v=HujbaVajaJ4)
+- Github Page: [https://github.com/spkingr/Godot-Pluggable-AI](https://github.com/spkingr/Godot-Pluggable-AI)

@@ -1,17 +1,19 @@
 extends Node2D
 
 
-const ExplosionScene := preload('res://src/Tank/Explosion.tscn')
+const TankExplosionScene := preload('res://src/Tank/TankExplosion.tscn')
 
 export var stopCamera := true # Debug
 
 onready var wayPointsNode := $Waypoints as Node2D
 onready var camera := $Camera as Node2D
 onready var tankContainer := $Tanks as Node2D
+onready var gameoverScreen := $CanvasLayer/GameOverScreen as Control
 
 
 func _ready() -> void:
-	$CanvasLayer/GameOverScreen.hide()
+	gameoverScreen.setMessage('You Win!')
+	gameoverScreen.hide()
 	
 	for tank in tankContainer.get_children():
 		if tank is Tank:
@@ -39,12 +41,15 @@ func _on_StateController_getWayPoints(stateController : StateController) -> void
 
 
 func _on_Tank_dead(tank : Tank) -> void:
-	var explosion = ExplosionScene.instance()
+	var explosion = TankExplosionScene.instance()
 	self.add_child(explosion)
 	explosion.global_position = tank.global_position
 	
 	camera.targets.erase(tank)
 	
+	if tank.name == 'TankPlayer':
+		gameoverScreen.setMessage('You Lost!')
+	
 	if self.get_tree().get_nodes_in_group('player').size() <= 2:
-		$CanvasLayer/GameOverScreen.show()
+		gameoverScreen.show()
 

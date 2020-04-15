@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/Tank/Tank.tscn" type="PackedScene" id=1]
 [ext_resource path="res://assets/sprites/terrainTiles_default.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://src/Game/Camera.tscn" type="PackedScene" id=12]
 [ext_resource path="res://src/Resources/States/PatrolScanner.tres" type="Resource" id=13]
 [ext_resource path="res://src/GUI/GameOverScreen.tscn" type="PackedScene" id=14]
+[ext_resource path="res://assets/audios/BackgroundMusic.ogg" type="AudioStream" id=15]
 
 [sub_resource type="TileSet" id=1]
 0/name = "terrainTiles_default.png 0"
@@ -56,10 +57,10 @@ tile_data = PoolIntArray( 0, 0, 7, 1, 0, 196608, 2, 0, 196608, 3, 0, 196608, 4, 
 [node name="Tanks" type="Node2D" parent="."]
 
 [node name="TankPlayer" parent="Tanks" instance=ExtResource( 1 )]
-position = Vector2( 127, 226 )
+position = Vector2( 869, 530 )
 
 [node name="TankEnemy1" parent="Tanks" instance=ExtResource( 1 )]
-position = Vector2( 868, 626 )
+position = Vector2( 194, 294 )
 tankBodyRect = Rect2( 260, 80, 38, 40 )
 tankGunRect = Rect2( 356, 60, 12, 30 )
 tankFireRect = Rect2( 324, 334, 20, 25 )
@@ -68,19 +69,18 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
-debug = true
 
 [node name="TankEnemy2" parent="Tanks" instance=ExtResource( 1 )]
-position = Vector2( 1535, 299 )
+position = Vector2( 1560, 226 )
+tankBodyRect = Rect2( 260, 80, 38, 40 )
 
 [node name="StateController" parent="Tanks/TankEnemy2" instance=ExtResource( 3 )]
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
-debug = true
 
 [node name="TankEnemy3" parent="Tanks" instance=ExtResource( 1 )]
-position = Vector2( 258, 973 )
+position = Vector2( 226, 925 )
 tankBodyRect = Rect2( 258, 0, 38, 36 )
 tankGunRect = Rect2( 358, 0, 12, 30 )
 tankFireRect = Rect2( 342, 234, 16, 28 )
@@ -89,10 +89,9 @@ tankFireRect = Rect2( 342, 234, 16, 28 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
-debug = true
 
 [node name="TankEnemy4" parent="Tanks" instance=ExtResource( 1 )]
-position = Vector2( 1691, 957 )
+position = Vector2( 1627, 989 )
 tankBodyRect = Rect2( 218, 132, 38, 36 )
 tankGunRect = Rect2( 326, 98, 16, 30 )
 tankFireRect = Rect2( 324, 334, 20, 25 )
@@ -101,7 +100,17 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
-debug = true
+
+[node name="TankEnemy5" parent="Tanks" instance=ExtResource( 1 )]
+position = Vector2( 928, 50 )
+tankBodyRect = Rect2( 258, 0, 38, 36 )
+tankGunRect = Rect2( 326, 98, 16, 30 )
+tankFireRect = Rect2( 324, 334, 20, 25 )
+
+[node name="StateController" parent="Tanks/TankEnemy5" instance=ExtResource( 3 )]
+enemyStatus = ExtResource( 11 )
+currentState = ExtResource( 10 )
+remainState = ExtResource( 9 )
 
 [node name="Waypoints" type="Node2D" parent="."]
 
@@ -141,7 +150,7 @@ position = Vector2( 359, 796 )
 rotation = 0.523598
 
 [node name="ObstacleMud1" parent="Obstacles" instance=ExtResource( 8 )]
-position = Vector2( 1325, 173 )
+position = Vector2( 1350, 75 )
 
 [node name="ObstacleMud2" parent="Obstacles" instance=ExtResource( 8 )]
 position = Vector2( 1486, 626 )
@@ -206,7 +215,13 @@ shape = SubResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource( 14 )]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 15 )
+volume_db = -10.0
+autoplay = true
 [connection signal="getWayPoints" from="Tanks/TankEnemy1/StateController" to="." method="_on_StateController_getWayPoints"]
 [connection signal="getWayPoints" from="Tanks/TankEnemy2/StateController" to="." method="_on_StateController_getWayPoints"]
 [connection signal="getWayPoints" from="Tanks/TankEnemy3/StateController" to="." method="_on_StateController_getWayPoints"]
 [connection signal="getWayPoints" from="Tanks/TankEnemy4/StateController" to="." method="_on_StateController_getWayPoints"]
+[connection signal="getWayPoints" from="Tanks/TankEnemy5/StateController" to="." method="_on_StateController_getWayPoints"]

@@ -9,6 +9,7 @@ onready var wayPointsNode := $Waypoints as Node2D
 onready var camera := $Camera as Node2D
 onready var tankContainer := $Tanks as Node2D
 onready var gameoverScreen := $CanvasLayer/GameOverScreen as Control
+onready var audioPlayer := $AudioStreamPlayer as AudioStreamPlayer
 
 
 func _ready() -> void:
@@ -27,6 +28,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed('reload'):
+		audioPlayer.volume_db = -10
 		self.get_tree().reload_current_scene()
 
 
@@ -51,5 +53,6 @@ func _on_Tank_dead(tank : Tank) -> void:
 		gameoverScreen.setMessage('You Lost!')
 	
 	if self.get_tree().get_nodes_in_group('player').size() <= 2:
+		audioPlayer.volume_db = -20
 		gameoverScreen.show()
 

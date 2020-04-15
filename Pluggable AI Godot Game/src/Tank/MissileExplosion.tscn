@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://src/Tank/MissileExplosion.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/onlyObjects_default.png" type="Texture" id=2]
+[ext_resource path="res://assets/audios/ShellExplosion.wav" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 128.0
@@ -33,8 +34,22 @@ tracks/1/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.501961 ), Color( 1, 1, 1, 0 ) ]
 }
+tracks/2/type = "audio"
+tracks/2/path = NodePath("AudioStreamPlayer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 3 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
-[node name="Explosion" type="Area2D"]
+[node name="MissileExplosion" type="Area2D"]
 collision_layer = 8
 collision_mask = 2
 script = ExtResource( 1 )
@@ -52,5 +67,9 @@ shape = SubResource( 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explode"
 anims/explode = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
+volume_db = -5.0
 [connection signal="body_entered" from="." to="." method="_on_Explosion_body_entered"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

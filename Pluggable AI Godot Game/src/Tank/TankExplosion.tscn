@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://assets/sprites/onlyObjects_default.png" type="Texture" id=1]
+[ext_resource path="res://assets/audios/TankExplosion.wav" type="AudioStream" id=2]
 
 [sub_resource type="Animation" id=1]
 resource_name = "explode"
@@ -54,6 +55,20 @@ tracks/3/keys = {
 "method": "queue_free"
 } ]
 }
+tracks/4/type = "audio"
+tracks/4/path = NodePath("AudioStreamPlayer")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 2 )
+} ],
+"times": PoolRealArray( 0 )
+}
 
 [node name="TankExplosion" type="Sprite"]
 texture = ExtResource( 1 )
@@ -63,3 +78,6 @@ region_rect = Rect2( 63, 191, 57, 57 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "explode"
 anims/explode = SubResource( 1 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )

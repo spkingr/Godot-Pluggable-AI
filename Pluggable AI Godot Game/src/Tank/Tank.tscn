@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://src/Tank/Tank.gd" type="Script" id=1]
 [ext_resource path="res://assets/sprites/onlyObjects_default.png" type="Texture" id=2]
 [ext_resource path="res://src/GUI/HealthBar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/audios/ShotFiring.wav" type="AudioStream" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 18, 20 )
@@ -46,6 +47,20 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 5.65685, 1, 1, 1 ),
 "update": 0,
 "values": [ Vector2( 0.5, 0.5 ), Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 0.1, 0.1 ) ]
+}
+tracks/3/type = "audio"
+tracks/3/path = NodePath("AudioStreamPlayer")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"clips": [ {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 4 )
+} ],
+"times": PoolRealArray( 0 )
 }
 
 [node name="Tank" type="KinematicBody2D" groups=[
@@ -97,4 +112,7 @@ one_shot = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/fire = SubResource( 2 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
 [connection signal="timeout" from="AttackedCooldownTimer" to="." method="_on_AttackedCooldownTimer_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ShotFiring.wav-097e4c01135c632bf1f44180029f6d75.sample"
+
+[deps]
+
+source_file="res://assets/audios/ShotFiring.wav"
+dest_files=[ "res://.import/ShotFiring.wav-097e4c01135c632bf1f44180029f6d75.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -24,6 +24,7 @@ onready var gunSprite := $SpriteGun as Sprite
 onready var bodySprite := $SpriteBody as Sprite
 onready var collisionShape := $CollisionShape2D.shape as Shape2D
 onready var healthBar = $HealthBar
+onready var powerIndicator = $PowerIndicator
 
 var _isAIActive := false
 var _stateTimeElapsed := 0.0
@@ -53,8 +54,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _isAIActive:
 		return
 	
-	if event.is_action_pressed('fire'):
-		_fire()
+	if event.is_action_pressed('fire') && ! powerIndicator.isStarted && _canFire:
+		powerIndicator.start()
+	elif event.is_action_released('fire') && powerIndicator.isStarted:
+		var force = powerIndicator.getAndStop()
+		_fire(force)
 
 
 func _process(delta: float) -> void:
@@ -82,7 +86,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation += _rotateDir * rotateSpeed * delta
 
 
-func _fire() -> void:
+func _fire(force : float = 1.0) -> void:
 	if ! _canFire:
 		return
 	
@@ -92,7 +96,6 @@ func _fire() -> void:
 	animationPlayer.play('fire')
 	
 	var bullet = MissileScene.instance()
-	var force := 1.0 + rand_range(-0.1, 0.5)
 	bullet.global_position = firePosition.global_position
 	bullet.init(force, firePosition.global_transform.x)
 	self.get_parent().add_child(bullet)
@@ -100,6 +103,10 @@ func _fire() -> void:
 	yield(cooldownTimer, 'timeout')
 	_canFire = true
 	fireSprite.hide()
+
+
+func _on_PowerIndicator_onMaximunReached(value) -> void:
+	_fire(value)
 
 
 func _on_AttackedCooldownTimer_timeout() -> void:
@@ -138,6 +145,7 @@ func setupAI(isAI : bool = false) -> void:
 
 func fire(force : float = 1.0) -> void:
 	_canFire = true
-	_fire()
+	_fire(force)
+
 
 

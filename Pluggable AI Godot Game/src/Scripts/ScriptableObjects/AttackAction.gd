@@ -20,4 +20,5 @@ func _attack(controller : StateController) -> void:
 		var exclude := [controller, controller.get_parent()]
 		var result := spaceState.intersect_ray(from, from + dir * attackRange, exclude)
 		if result && result.collider.is_in_group('player'):
-			controller.fire(controller.enemyStatus.attackForce)
+			var force := rand_range(controller.enemyStatus.attackForceMin, controller.enemyStatus.attackForceMax)
+			controller.fire(force)

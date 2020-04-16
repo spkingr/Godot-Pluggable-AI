@@ -69,6 +69,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy2" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 1560, 226 )
@@ -78,6 +79,7 @@ tankBodyRect = Rect2( 260, 80, 38, 40 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy3" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 226, 925 )
@@ -89,6 +91,7 @@ tankFireRect = Rect2( 342, 234, 16, 28 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy4" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 1627, 989 )
@@ -100,6 +103,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy5" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 928, 50 )
@@ -111,6 +115,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="Waypoints" type="Node2D" parent="."]
 
@@ -215,11 +220,12 @@ shape = SubResource( 3 )
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="GameOverScreen" parent="CanvasLayer" instance=ExtResource( 14 )]
+visible = false
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
-volume_db = -10.0
 autoplay = true
+bus = "Music"
 [connection signal="getWayPoints" from="Tanks/TankEnemy1/StateController" to="." method="_on_StateController_getWayPoints"]
 [connection signal="getWayPoints" from="Tanks/TankEnemy2/StateController" to="." method="_on_StateController_getWayPoints"]
 [connection signal="getWayPoints" from="Tanks/TankEnemy3/StateController" to="." method="_on_StateController_getWayPoints"]

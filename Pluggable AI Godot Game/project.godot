@@ -96,6 +96,10 @@ config/name="Pluggable AI Godot Game"
 run/main_scene="res://src/Game/Game.tscn"
 config/icon="res://assets/icons/icon.png"
 
+[audio]
+
+default_bus_layout="res://src/default_bus_layout.tres"
+
 [display]
 
 window/size/width=1920

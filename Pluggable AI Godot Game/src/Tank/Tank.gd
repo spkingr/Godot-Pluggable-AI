@@ -15,6 +15,9 @@ export var tankBodyRect := Rect2(216, 0, 42, 42)
 export var tankGunRect := Rect2(326, 264, 16, 30)
 export var tankFireRect := Rect2(324, 295, 21, 39)
 
+export var missileMoveSpeed := 400
+export var missileMoveResistance := 300
+
 onready var animationPlayer := $AnimationPlayer as AnimationPlayer
 onready var cooldownTimer := $FireCooldownTimer as Timer
 onready var attackedTimer := $AttackedCooldownTimer as Timer
@@ -86,7 +89,7 @@ func _physics_process(delta: float) -> void:
 	self.rotation += _rotateDir * rotateSpeed * delta
 
 
-func _fire(force : float = 1.0) -> void:
+func _fire(force : float) -> void:
 	if ! _canFire:
 		return
 	
@@ -96,8 +99,8 @@ func _fire(force : float = 1.0) -> void:
 	animationPlayer.play('fire')
 	
 	var bullet = MissileScene.instance()
+	bullet.init(force, missileMoveSpeed, missileMoveResistance, firePosition.global_transform.x)
 	bullet.global_position = firePosition.global_position
-	bullet.init(force, firePosition.global_transform.x)
 	self.get_parent().add_child(bullet)
 	
 	yield(cooldownTimer, 'timeout')
@@ -125,6 +128,9 @@ func _updateHealth() -> void:
 
 
 func damaged(damage : int = 1, force : Vector2 = Vector2.ZERO) -> void:
+	if self.name == 'TankPlayer':
+		prints('damge', damage)
+	
 	_isAttacked = true
 	health -= damage
 	if health <= 0:

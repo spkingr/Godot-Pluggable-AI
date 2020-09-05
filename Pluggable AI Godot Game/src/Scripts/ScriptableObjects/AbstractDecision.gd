@@ -11,5 +11,5 @@ export var debugDrawColor := Color.white # Debug
 export var resourceName := 'Decision'    # Debug
 
 
-func decide(conroller : StateController) -> bool:
+func decide(controller : StateController) -> bool:
 	return false

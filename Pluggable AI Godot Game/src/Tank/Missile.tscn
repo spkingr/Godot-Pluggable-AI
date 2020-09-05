@@ -1,25 +1,33 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/sprites/onlyObjects_default.png" type="Texture" id=1]
 [ext_resource path="res://src/Tank/Missile.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprites/shadow.png" type="Texture" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 5.99997
 height = 8.00005
 
-[node name="Missile" type="Area2D"]
+[node name="Missile" type="Area2D" groups=[
+"bullet",
+]]
 collision_layer = 4
 collision_mask = 7
 script = ExtResource( 2 )
 
-[node name="Sprite1" type="Sprite" parent="."]
+[node name="Shadow" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="Sprite1" type="Sprite" parent="Body"]
 rotation = 1.5708
 scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 181, 106, 8, 14 )
 
-[node name="Sprite2" type="Sprite" parent="."]
+[node name="Sprite2" type="Sprite" parent="Body"]
 position = Vector2( -21, 0 )
 rotation = 1.5708
 scale = Vector2( 2, 2 )
@@ -30,9 +38,15 @@ region_rect = Rect2( 174, 46, 8, 10 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
 rect = Rect2( -60, -40, 100, 80 )
+__meta__ = {
+"_edit_lock_": true
+}
 [connection signal="area_entered" from="." to="." method="_on_Missile_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Missile_body_entered"]
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

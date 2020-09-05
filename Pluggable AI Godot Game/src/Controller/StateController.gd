@@ -195,7 +195,7 @@ func drawLine(froms : Array, tos : Array, color : Color, size : float = 2.0) -> 
 	self.update()
 
 
-func fire(force : float = 1.0) -> void:
+func fire(force : float) -> void:
 	_parent.fire(force)
 
 

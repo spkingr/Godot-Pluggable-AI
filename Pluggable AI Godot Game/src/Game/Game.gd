@@ -18,6 +18,8 @@ func _ready() -> void:
 	
 	for tank in tankContainer.get_children():
 		if tank is Tank:
+			if stopCamera && tank.name != 'TankPlayer':
+				tank.queue_free()
 			tank.connect('dead', self, '_on_Tank_dead', [tank])
 	
 	if stopCamera:

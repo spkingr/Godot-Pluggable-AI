@@ -9,9 +9,10 @@ onready var damageRange : float = $CollisionShape2D.shape.radius
 
 func _on_Explosion_body_entered(body: Node) -> void:
 	if body.has_method('damaged'):
-		var ratio := self.global_position.distance_to(body.global_position) / damageRange
-		var damage := int(maxDamage * (1.0 - pow(ratio, 3)))
-		var force : Vector2 = maxForce * ratio * (body.global_position - self.global_position).normalized()
+		var vector : Vector2 = body.global_position - self.global_position
+		var ratio : float = 1.0 - pow(vector.length() / damageRange, 0.6)
+		var damage := ceil(maxDamage * ratio)
+		var force : Vector2 = maxForce * ratio * vector.normalized()
 		body.damaged(damage, force)
 
 

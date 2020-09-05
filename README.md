@@ -8,7 +8,7 @@ Reddit post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_wi
 
 Youtube media: [https://www.youtube.com/watch?v=k8fQTgcHttQ](https://www.youtube.com/watch?v=k8fQTgcHttQ)
 
-Unity Youtube videos: 
+Unity Youtube videos: [Unity tutorial - Pluggable AI With Scriptable Objects](https://www.youtube.com/playlist?list=PLX2vGYjWbI0ROSj_B0_eir_VkHrEkd4pi)
 
 ![Pluggable AI With Scriptable Objects](./Images/Pluggable%20AI%20With%20Scriptable%20Objects.jpg)
 

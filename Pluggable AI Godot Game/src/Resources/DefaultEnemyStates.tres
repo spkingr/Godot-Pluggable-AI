@@ -4,16 +4,15 @@
 
 [resource]
 script = ExtResource( 1 )
-moveSpeed = 120
-moveSpeedRandom = 30
+moveSpeed = 150
+moveSpeedRandom = 50
 lookRange = 500
 lookAngle = 30
-attackRange = 350
-attackRangeRandom = 100
+attackRange = 450
+attackRangeRandom = 150
 attackRate = 1.5
 attackRateRandom = 1.0
-attackForceMin = 0.5
-attackForceMax = 1.0
+missileLaunchPrecision = 0.6
 attackDamage = 10
 attackDamageRandom = 5
 searchDuration = 8.0

@@ -1,5 +1,7 @@
 # Try Pluggable AI With Scriptable Objects in Godot
 
+[Godot游戏开发实践之四：搬运Unity的Pluggable AI教程](http://liuqingwen.me/2020/09/08/godot-game-devLog-4-translate-pluggable-AI-tutorial-from-unity-to-godot/)
+
 ## About
 
 Several days ago I read a Reddit post: [Unity tutorial --to-> Godot tutorial ?](https://www.reddit.com/r/godot/comments/fo2y2u/unity_tutorial_to_godot_tutorial/) , in the post, the Unity tutorial is all about ScriptableObject and AI, it's so fantastic that I want to try that in Godot! So I made this project.
@@ -87,6 +89,7 @@ func _checkTransitions(controller : StateController) -> void:
 
 Of course, this is just a demonstration, I just want to explain an idea, and I know that Godot 4.0 will solve the circular reference dependence issue, and, with other great stuff coming together, this is really excited to anticipate, I hope Godot will become much much greater in the future!
 
+- Blog post: [Godot游戏开发实践之四：搬运Unity的Pluggable AI教程](http://liuqingwen.me/2020/09/08/godot-game-devLog-4-translate-pluggable-AI-tutorial-from-unity-to-godot/)
 - Reddit Post: [https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/](https://www.reddit.com/r/godot/comments/fzp0ul/try_pluggable_ai_with_scriptable_objects_in_godot/)
 - Youtube Media: [https://www.youtube.com/watch?v=HujbaVajaJ4](https://www.youtube.com/watch?v=HujbaVajaJ4)
 - Github Page: [https://github.com/spkingr/Godot-Pluggable-AI](https://github.com/spkingr/Godot-Pluggable-AI)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://src/GUI/PowerIndicator.gd" type="Script" id=1]
+[ext_resource path="res://assets/ui/arrow.png" type="Texture" id=2]
 
 [sub_resource type="StyleBoxFlat" id=1]
-bg_color = Color( 0.992157, 0.945098, 0.458824, 1 )
+bg_color = Color( 1, 1, 0, 1 )
 
 [sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 0.6, 0.6, 0.6, 0 )
@@ -13,6 +14,16 @@ modulate = Color( 1, 1, 1, 0.627451 )
 script = ExtResource( 1 )
 
 [node name="Tween" type="Tween" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.792157 )
+margin_top = -7.0
+margin_right = 120.0
+margin_bottom = 9.0
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
 margin_top = -7.0

@@ -3,6 +3,7 @@ Try Pluggable AI With Scriptable Objects in Godot
 
 Readme:
 
+Read more about this game: [Godot游戏开发实践之四：搬运Unity的Pluggable AI教程](http://liuqingwen.me/2020/09/08/godot-game-devLog-4-translate-pluggable-AI-tutorial-from-unity-to-godot/)
 
 About:
 

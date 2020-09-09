@@ -23,8 +23,10 @@ func start() -> void:
 	_progress.value = minValue
 	self.show()
 	
+	var stylebox : StyleBoxFlat = _progress.get_stylebox('fg')
 	_tween.stop_all()
 	_tween.interpolate_property(_progress, 'value', minValue, maxValue, duration, Tween.TRANS_QUAD, Tween.EASE_OUT)
+	_tween.interpolate_property(stylebox, 'bg_color', Color.green, Color.yellow, duration, Tween.TRANS_QUAD, Tween.EASE_OUT)
 	_tween.start()
 
 

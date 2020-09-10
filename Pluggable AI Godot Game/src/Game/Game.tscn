@@ -47,7 +47,6 @@ extents = Vector2( 4, 550 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
-stopCamera = false
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource( 1 )
@@ -167,6 +166,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy2" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 1560, 226 )
@@ -176,6 +176,7 @@ tankBodyRect = Rect2( 260, 80, 38, 40 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy3" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 226, 925 )
@@ -187,6 +188,7 @@ tankFireRect = Rect2( 342, 234, 16, 28 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 13 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy4" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 1627, 989 )
@@ -198,6 +200,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="TankEnemy5" parent="Tanks" instance=ExtResource( 1 )]
 position = Vector2( 928, 50 )
@@ -209,6 +212,7 @@ tankFireRect = Rect2( 324, 334, 20, 25 )
 enemyStatus = ExtResource( 11 )
 currentState = ExtResource( 10 )
 remainState = ExtResource( 9 )
+debug = true
 
 [node name="Camera" parent="." instance=ExtResource( 12 )]
 

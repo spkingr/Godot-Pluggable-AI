@@ -2,6 +2,8 @@
 
 [Godot游戏开发实践之四：搬运Unity的Pluggable AI教程](http://liuqingwen.me/2020/09/08/godot-game-devLog-4-translate-pluggable-AI-tutorial-from-unity-to-godot/)
 
+![Godot Pluggable AI](./Images/godot2.jpg)
+
 ## About
 
 Several days ago I read a Reddit post: [Unity tutorial --to-> Godot tutorial ?](https://www.reddit.com/r/godot/comments/fo2y2u/unity_tutorial_to_godot_tutorial/) , in the post, the Unity tutorial is all about ScriptableObject and AI, it's so fantastic that I want to try that in Godot! So I made this project.
